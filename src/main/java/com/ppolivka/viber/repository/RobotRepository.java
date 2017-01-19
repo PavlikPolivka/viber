@@ -12,5 +12,5 @@ import java.util.List;
 public interface RobotRepository extends PagingAndSortingRepository<Robot, Integer> {
 
     @RestResource(path = "byName")
-    List<Robot> findByLastName(@Param("name") String name);
+    List<Robot> findByName(@Param("name") String name);
 }
