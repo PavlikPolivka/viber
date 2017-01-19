@@ -1,4 +1,4 @@
-package demo;
+package com.ppolivka.viber;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
