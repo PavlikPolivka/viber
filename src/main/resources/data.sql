@@ -1,2 +1,2 @@
-INSERT INTO robots VALUES (1, 'Test', 'aaaaa');
-INSERT INTO robots VALUES (2, 'Test2', 'bbbbb');
+INSERT INTO robot (name,auth_token) VALUES ('Test', 'aaaaa');
+INSERT INTO robot (name,auth_token) VALUES ('Test2', 'bbbbb');
