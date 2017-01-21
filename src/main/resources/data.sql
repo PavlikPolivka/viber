@@ -1,2 +1,2 @@
-INSERT INTO robot (name,auth_token) VALUES ('Test', 'aaaaa');
-INSERT INTO robot (name,auth_token) VALUES ('Test2', 'bbbbb');
+INSERT INTO subscriber (name,viber_id) VALUES ('Test', 'aaaaa');
+INSERT INTO subscriber (name,viber_id) VALUES ('Test2', 'bbbbb');

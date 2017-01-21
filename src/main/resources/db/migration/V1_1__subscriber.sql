@@ -1,0 +1,7 @@
+CREATE SEQUENCE subscriber_id_seq START WITH 1;
+CREATE TABLE subscriber
+(
+  id INTEGER PRIMARY KEY NOT NULL,
+  viber_id VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL
+);
