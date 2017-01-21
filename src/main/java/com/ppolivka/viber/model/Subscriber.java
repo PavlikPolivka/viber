@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "subscriber")
-@SequenceGenerator(name="subscriber_id_seq", allocationSize=1)
+@SequenceGenerator(name="subscriber_id_seq", sequenceName = "subscriber_id_seq", allocationSize=1)
 public class Subscriber {
 
     @Id
