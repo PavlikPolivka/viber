@@ -3,15 +3,13 @@ package com.ppolivka.viber.controller;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.common.io.CharStreams;
+import com.ppolivka.viber.service.SubscriberService;
 import com.viber.bot.Request;
 import com.viber.bot.ViberSignatureValidator;
 import com.viber.bot.api.ViberBot;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Nullable;
 import java.io.InputStream;
@@ -26,11 +24,18 @@ public class BotController {
 
     private final ViberBot bot;
     private final ViberSignatureValidator signatureValidator;
+    private final SubscriberService subscriberService;
 
     @Autowired
-    public BotController(ViberBot bot, ViberSignatureValidator signatureValidator) {
+    public BotController(ViberBot bot, ViberSignatureValidator signatureValidator, SubscriberService subscriberService) {
         this.bot = bot;
         this.signatureValidator = signatureValidator;
+        this.subscriberService = subscriberService;
+    }
+
+    @RequestMapping(value = "/message")
+    public void sendMessage(@RequestParam("text") String text) {
+        subscriberService.notifySubscribers(text);
     }
 
     @RequestMapping(value = "/bot", produces = "application/json", method = POST)

@@ -5,6 +5,7 @@ import com.viber.bot.profile.UserProfile;
 public interface SubscriberService {
 
     void addSubscriber(UserProfile userProfile);
-    void removeSubscriber(String userBiberId);
+    void removeSubscriber(String userViberId);
+    void notifySubscribers(String textMessage);
 
 }
