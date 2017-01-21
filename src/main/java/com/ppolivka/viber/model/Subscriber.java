@@ -6,10 +6,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "subscriber")
+@SequenceGenerator(name="subscriber_id_seq", allocationSize=1)
 public class Subscriber {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="subscriber_id_seq")
     protected Integer id;
 
     @Column(name = "name")
