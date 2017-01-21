@@ -3,23 +3,23 @@ package com.ppolivka.viber.model;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
 
 @Entity
-@Table(name = "robot")
-public class Robot {
+@Table(name = "account")
+@SequenceGenerator(name="account_id_seq", sequenceName = "account_id_seq", allocationSize=1)
+public class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="account_id_seq")
     protected Integer id;
 
     @Column(name = "name")
     @NotEmpty
     protected String name;
 
-    @Column(name = "auth_token")
+    @Column(name = "password")
     @NotEmpty
-    protected String authToken;
+    protected String password;
 
     public Integer getId() {
         return id;
@@ -37,11 +37,11 @@ public class Robot {
         this.name = name;
     }
 
-    public String getAuthToken() {
-        return authToken;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

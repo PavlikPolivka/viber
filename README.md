@@ -1,0 +1,1 @@
+curl -X GET -H "Authorization: Basic cGF2ZWw6dGVzdA==" "http://localhost:8080/message?text=hello"
